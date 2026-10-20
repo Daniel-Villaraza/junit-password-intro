@@ -38,4 +38,40 @@ public class PasswordUtilsTest {
         // assert
         assertEquals("extra long", actual);
     }
+
+    @Test 
+    void testIsAlphaNumeric() {
+        // arrange
+        String password = "h3ll0";
+
+        // act
+        boolean actual = PasswordUtils.isAlphanumeric(password);
+
+        // assert
+        assertEquals(true, actual);
+    }
+
+    @Test
+    void testContainsTriple() {
+        // arrange
+        String password = "hellooo";
+
+        // act
+        boolean actual = PasswordUtils.containsTriple(password);
+
+        // assert
+        assertEquals(true, actual);
+    }
+
+    @Test
+    void testCountSpecialCharacters() {
+        // arrange 
+        String password = "he//@";
+
+        // act
+        int actual = PasswordUtils.countSpecialCharacters(password);
+
+        // assert
+        assertEquals(3, actual);
+    }
 }
