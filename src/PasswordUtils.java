@@ -76,7 +76,6 @@ public class PasswordUtils {
     *
     * A special character is any non-alphanumeric (not letter or digit) character.
     *
-    *
     * @param password the password to check
     * @return the count of special characters
     */ 
