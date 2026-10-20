@@ -1,5 +1,7 @@
 import java.util.HashMap;
 
+import org.hamcrest.core.StringContains;
+
 /**
  * Utility class for analyzing passwords.
  */
@@ -88,7 +90,18 @@ public class PasswordUtils {
     public static int countSpecialCharacters(String password) {
         // TODO: Make tests FIRST, then implement the method
         // Please have your tests in a separate commit from the implementation
-        return 0;
+        
+        String passwordLowerCase = password.toLowerCase();
+        char[] chars = passwordLowerCase.toCharArray();
+        int specialCharacterCounter = 0;
+
+        for (int i = 0; i < chars.length; i++) {
+            if (!Character.isLetterOrDigit(chars[i])) {
+                specialCharacterCounter++;
+            }
+        }
+
+        return specialCharacterCounter;        
     }
 
     /**
