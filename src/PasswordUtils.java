@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 /**
  * Utility class for analyzing passwords.
  */
@@ -52,6 +54,25 @@ public class PasswordUtils {
     public static boolean containsTriple(String password) {
         // TODO: Make tests FIRST, then implement the method
         // Please have your tests in a separate commit from the implementation
+
+        if (password.length() < 3) {
+            return false;
+        } else if (password.length() == 3) {
+            String[] passwordParts = password.split("");
+            
+            if (passwordParts[0] == passwordParts[1] && passwordParts[1] == passwordParts[2]) {
+                return true;
+            }
+        }
+
+        char[] passwordParts = new char[password.length()];
+
+        for (int i = 0; i < passwordParts.length - 2; i++) {
+            if (passwordParts[i] == passwordParts[i + 1] && passwordParts[i + 1] == passwordParts[i + 2]) {
+                return true;
+            }
+        }
+
         return false;
     }
 
