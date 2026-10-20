@@ -1,7 +1,3 @@
-import java.util.HashMap;
-
-import org.hamcrest.core.StringContains;
-
 /**
  * Utility class for analyzing passwords.
  */
@@ -54,23 +50,20 @@ public class PasswordUtils {
     * @return true if password has a character repeated three times in a row, false otherwise
     */
     public static boolean containsTriple(String password) {
-        // TODO: Make tests FIRST, then implement the method
-        // Please have your tests in a separate commit from the implementation
-
         if (password.length() < 3) {
             return false;
         } else if (password.length() == 3) {
-            String[] passwordParts = password.split("");
+            char[] passwordChars = password.toCharArray();
             
-            if (passwordParts[0] == passwordParts[1] && passwordParts[1] == passwordParts[2]) {
+            if (passwordChars[0] == passwordChars[1] && passwordChars[1] == passwordChars[2]) {
                 return true;
             }
         }
 
-        char[] passwordParts = new char[password.length()];
+        char[] passwordChars = new char[password.length()];
 
-        for (int i = 0; i < passwordParts.length - 2; i++) {
-            if (passwordParts[i] == passwordParts[i + 1] && passwordParts[i + 1] == passwordParts[i + 2]) {
+        for (int i = 0; i < passwordChars.length - 2; i++) {
+            if (passwordChars[i] == passwordChars[i + 1] && passwordChars[i + 1] == passwordChars[i + 2]) {
                 return true;
             }
         }
@@ -88,9 +81,6 @@ public class PasswordUtils {
     * @return the count of special characters
     */ 
     public static int countSpecialCharacters(String password) {
-        // TODO: Make tests FIRST, then implement the method
-        // Please have your tests in a separate commit from the implementation
-        
         String passwordLowerCase = password.toLowerCase();
         char[] chars = passwordLowerCase.toCharArray();
         int specialCharacterCounter = 0;
@@ -114,10 +104,6 @@ public class PasswordUtils {
     * @return true has the minimum number of special charcters or more, false otherwise
     */
     public static boolean hasSufficientSpecialCharacters(String password, int minimum) {
-        // TODO: Make tests FIRST, then implement the method
-        // Please have your tests in a separate commit from the implementation
-        // Required: please use countSpecialCharacters as a helper method.
-        // Don't just copy/paste the logic!
         if (countSpecialCharacters(password) >= minimum) {
             return true;
         }
